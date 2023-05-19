@@ -6,6 +6,16 @@
 
 #include "Core.h"
 
+std::vector<std::string> split(std::string line, char delim, const std::vector<char>& exclude = {})
+{
+	std::vector<std::string> words{};
+	for (const char& c : line)
+		if (c == delim) words.push_back("");
+		else if (std::find(exclude.begin(), exclude.end(), c) != exclude.end())
+			words.back().push_back(c);
+	return words;
+}
+
 void printIP(IPaddress* ip)
 {
 	unsigned int ipData{ SDL_Swap32(ip->host) };
@@ -36,17 +46,19 @@ void Core::loop()
 	std::cout << "Client connected with IP "; printIP(clientIP);
 
 	std::vector<char> req{};
-	do req.push_back(0);
-	while (SDLNet_TCP_Recv(client, &req.back(), 1) == 1);
+	int bytes{};
+	do
+	{
+		req.push_back(0);
+		if (SDLNet_CheckSockets(set, 0) == 1)
+			bytes = SDLNet_TCP_Recv(client, &req.back(), 1);
+		else bytes = 0;
+	} while (bytes);
+
 	if (req.empty()) { SDLNet_TCP_DelSocket(set, client); SDLNet_TCP_Close(client); return; }
 
-	std::vector<std::string> lines(1);
-	for (const char& c : req)
-		if (c == '\n') lines.push_back("");
-		else if (c != '\r') lines.back().push_back(c);
-
-	for (const std::string& line : lines)
-		std::cout << line << '\n';
+	std::vector<std::string> lines{ split(std::string{ req.data() }, '\n', { '\r' }) };
+	std::vector<std::string> statusLine{ split(lines[0], ' ') };
 
 	SDLNet_TCP_DelSocket(set, client);
 	SDLNet_TCP_Close(client);
