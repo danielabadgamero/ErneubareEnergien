@@ -138,6 +138,9 @@
   <ItemGroup>
     <ClInclude Include="Core.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\index.html" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
