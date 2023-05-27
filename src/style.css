@@ -19,7 +19,7 @@ html {
 	gap: 30px;
 }
 
-#arten {
+#arten-list {
 	flex-direction: column;
 	display: none;
 }
