@@ -37,5 +37,29 @@
     <None Include="src\style.css">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="src\current.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\economy.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\environment.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\bio.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\geo.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\sun.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\water.html">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\wind.html">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

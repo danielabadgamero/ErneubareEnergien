@@ -17,11 +17,19 @@ html {
 	list-style-type: none;
 	display: flex;
 	gap: 30px;
+	align-items: center;
+	justify-content: center;
+}
+
+li {
+	cursor: pointer;
 }
 
 #arten-list {
 	flex-direction: column;
-	display: none;
+	list-style-type: none;
+	display: flex;
+	gap: 5px;
 }
 
 #title {
@@ -55,7 +63,7 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 100px 0 100px;
-	height: 100px;
+	height: 150px;
 }
 
 main {

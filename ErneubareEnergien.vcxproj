@@ -139,9 +139,17 @@
     <ClInclude Include="Core.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\bio.html" />
+    <None Include="src\current.html" />
+    <None Include="src\economy.html" />
+    <None Include="src\environment.html" />
+    <None Include="src\geo.html" />
     <None Include="src\index.html" />
     <None Include="src\script.js" />
     <None Include="src\style.css" />
+    <None Include="src\sun.html" />
+    <None Include="src\water.html" />
+    <None Include="src\wind.html" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
